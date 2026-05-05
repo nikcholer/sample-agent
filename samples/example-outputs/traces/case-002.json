@@ -1,0 +1,40 @@
+{
+  "outcome": "clarification_required",
+  "policy_decision": {
+    "approval_required": false,
+    "decision": "deferred",
+    "excluded_fields": [],
+    "reason_codes": [
+      "clarification_required"
+    ]
+  },
+  "reason_codes": [
+    "clarification_required"
+  ],
+  "request_id": "case-002",
+  "requester_id": "u-1002",
+  "structured_request": {
+    "ambiguous_terms": {
+      "sales": [
+        "revenue",
+        "units",
+        "gross_margin"
+      ]
+    },
+    "date_range": {
+      "end": "2026-03-31",
+      "label": "last quarter",
+      "reference_date": "2026-05-05",
+      "start": "2026-01-01"
+    },
+    "dimensions": [
+      "region"
+    ],
+    "filters": {},
+    "metrics": [],
+    "output_format": null,
+    "purpose": "Monday deck",
+    "report_type": "sales_summary"
+  },
+  "timestamp": "2026-05-05T13:49:24+00:00"
+}

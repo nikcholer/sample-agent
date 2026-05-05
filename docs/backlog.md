@@ -140,15 +140,15 @@ Acceptance criteria:
 
 Goal: make the project easy to inspect and discuss.
 
-- [ ] Write final `README.md`.
-- [ ] Add architecture diagram.
-- [ ] Add before/after workflow diagram.
-- [ ] Add demo script.
-- [ ] Add generated example reports.
-- [ ] Add anonymized trace/audit examples.
-- [ ] Add short implementation notes explaining design trade-offs.
-- [ ] Record short demo video or GIF.
-- [ ] Add final limitations and extension ideas.
+- [x] Write final `README.md`.
+- [x] Add architecture diagram.
+- [x] Add before/after workflow diagram.
+- [x] Add demo script.
+- [x] Add generated example reports.
+- [x] Add anonymized trace/audit examples.
+- [x] Add short implementation notes explaining design trade-offs.
+- [x] Add record-ready demo outline instead of committing video/GIF media.
+- [x] Add final limitations and extension ideas.
 
 Acceptance criteria:
 
@@ -156,14 +156,12 @@ Acceptance criteria:
 - A technical interviewer can inspect the implementation and tests.
 - The project clearly avoids claiming to be a general BI replacement.
 
-## Open design decisions
+## Future design decisions
 
-- Which runtime should be used for the portable core: Python, TypeScript, or both?
-- Should the first report output be CSV-only, or should XLSX be included from the start?
 - Should evaluation use static fixture expectations only, or also model-graded qualitative checks?
 - What pass-rate or repeated-failure threshold should trigger trying a stronger model in a real deployment?
-- Should the first Microsoft artifact be a mapping document, a Copilot Studio mock-up, or a Microsoft 365 Agents SDK adapter?
 - Should inbound email be simulated as plain text, `.eml`, or JSON-wrapped messages?
+- Should a future Microsoft implementation target Microsoft 365 Agents SDK first, or Copilot Studio first if a real tenant becomes available?
 
 ## Parking lot
 
