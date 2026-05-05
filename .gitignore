@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# Node / frontend experiments
+node_modules/
+dist/
+build/
+.next/
+.vite/
+coverage/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Generated demo output
+generated/
+samples/generated-reports/
+samples/traces/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+~$*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

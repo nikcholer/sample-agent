@@ -13,10 +13,10 @@ Goal: make the project navigable and ready for implementation.
 - [x] Move planning artifacts into `docs/`.
 - [x] Initialize Git repository.
 - [x] Create private GitHub remote.
-- [ ] Add project `README.md` with thesis, scope, and quickstart placeholder.
-- [ ] Add `.gitignore` for Python, Node, generated reports, local env files, and temporary traces.
-- [ ] Decide initial implementation stack.
-- [ ] Create top-level folders for docs, samples, core logic, implementations, and generated outputs.
+- [x] Add project `README.md` with thesis, scope, and quickstart placeholder.
+- [x] Add `.gitignore` for Python, Node, generated reports, local env files, and temporary traces.
+- [x] Decide initial implementation stack.
+- [x] Create top-level folders for docs, samples, core logic, implementations, and generated outputs.
 
 ## Milestone 1: Process documentation
 
