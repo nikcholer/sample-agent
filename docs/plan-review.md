@@ -1,5 +1,7 @@
 # Plan Review: Portable Email-to-Report Agent
 
+> Framing note: this document captures the initial review and rationale for the project. The active milestone/task list now lives in `docs/backlog.md`, and the process contract is split across the dedicated Milestone 1 documents in this folder.
+
 ## Overall verdict
 
 This is a strong portfolio piece. The proposed "email requesting a custom sales report" workflow is familiar, business-relevant, and agent-shaped without feeling contrived. It demonstrates the right things for deployable business agents: intake from messy human language, clarification, policy checks, deterministic data work, file generation, auditability, and a controlled handoff boundary.

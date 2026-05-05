@@ -22,14 +22,14 @@ Goal: make the project navigable and ready for implementation.
 
 Goal: document the business workflow before agentifying it.
 
-- [ ] Write `docs/process-overview.md`.
-- [ ] Write `docs/current-human-workflow.md`.
-- [ ] Write `docs/black-box-contract.md`.
-- [ ] Write `docs/supported-request-types.md`.
-- [ ] Write `docs/policy-and-permissions.md`.
-- [ ] Write `docs/clarification-rules.md`.
-- [ ] Write `docs/evaluation-plan.md`.
-- [ ] Update `docs/plan-review.md` as the framing note rather than the active plan.
+- [x] Write `docs/process-overview.md`.
+- [x] Write `docs/current-human-workflow.md`.
+- [x] Write `docs/black-box-contract.md`.
+- [x] Write `docs/supported-request-types.md`.
+- [x] Write `docs/policy-and-permissions.md`.
+- [x] Write `docs/clarification-rules.md`.
+- [x] Write `docs/evaluation-plan.md`.
+- [x] Update `docs/plan-review.md` as the framing note rather than the active plan.
 
 Acceptance criteria:
 

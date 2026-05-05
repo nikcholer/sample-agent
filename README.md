@@ -52,5 +52,12 @@ python -m pytest
 ## Current Planning Documents
 
 - [Backlog](docs/backlog.md)
+- [Process overview](docs/process-overview.md)
+- [Current human workflow](docs/current-human-workflow.md)
+- [Black-box contract](docs/black-box-contract.md)
+- [Supported request types](docs/supported-request-types.md)
+- [Policy and permissions](docs/policy-and-permissions.md)
+- [Clarification rules](docs/clarification-rules.md)
+- [Evaluation plan](docs/evaluation-plan.md)
 - [Plan review](docs/plan-review.md)
 - [Source chat PDF](docs/agent-demo.pdf)
