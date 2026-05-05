@@ -47,6 +47,14 @@ Run one fixture through the portable core:
 python tools\run_core_case.py case-001
 ```
 
+Run one fixture through the OpenAI Agents SDK adapter after installing `openai-agents`
+and setting `OPENAI_API_KEY`:
+
+```powershell
+python -m pip install -r requirements-openai.txt
+python tools\run_openai_agent_case.py case-001
+```
+
 ## Design Notes
 
 - Use the model for interpretation and structured request extraction.
@@ -67,5 +75,7 @@ python tools\run_core_case.py case-001
 - [Evaluation plan](docs/evaluation-plan.md)
 - [Synthetic business domain](docs/synthetic-business-domain.md)
 - [Portable core](docs/portable-core.md)
+- [OpenAI Agents SDK adapter](docs/openai-agents-sdk.md)
+- [OpenAI agent transcript example](docs/openai-agent-transcript-example.md)
 - [Plan review](docs/plan-review.md)
 - [Source chat PDF](docs/agent-demo.pdf)

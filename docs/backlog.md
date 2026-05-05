@@ -80,15 +80,15 @@ Acceptance criteria:
 
 Goal: show a working code-first agent implementation.
 
-- [ ] Create OpenAI implementation folder.
-- [ ] Define the intake agent instructions.
-- [ ] Expose core operations as tools.
-- [ ] Use structured outputs for extracted request intent.
-- [ ] Implement clarification path.
-- [ ] Implement approved-report path.
-- [ ] Implement rejection path.
-- [ ] Implement approval-required path.
-- [ ] Capture traces or transcript examples.
+- [x] Create OpenAI implementation folder.
+- [x] Define the intake agent instructions.
+- [x] Expose core operations as tools.
+- [x] Use structured outputs for extracted request intent.
+- [x] Implement clarification path.
+- [x] Implement approved-report path.
+- [x] Implement rejection path.
+- [x] Implement approval-required path.
+- [x] Capture traces or transcript examples.
 
 Acceptance criteria:
 

@@ -1,1 +1,1 @@
-# The portable core currently has no third-party runtime dependencies.
+pydantic>=2
