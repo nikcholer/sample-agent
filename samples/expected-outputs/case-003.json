@@ -1,0 +1,39 @@
+{
+  "case_id": "case-003",
+  "requester_id": "u-1001",
+  "expected_outcome": "generated_report",
+  "structured_request": {
+    "report_type": "product_breakdown",
+    "metrics": ["revenue", "gross_margin"],
+    "dimensions": ["product_category"],
+    "date_range": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "label": "Q1 2026"
+    },
+    "filters": {
+      "country": ["UK"]
+    },
+    "output_format": "xlsx",
+    "purpose": "regional margin review"
+  },
+  "policy_decision": {
+    "decision": "allowed",
+    "reason_codes": ["allowed"],
+    "approval_required": false,
+    "excluded_fields": []
+  },
+  "report_plan": {
+    "source_table": "SalesOrders",
+    "group_by": ["product_category"],
+    "metrics": ["revenue", "gross_margin"],
+    "filters": {
+      "country": ["UK"],
+      "order_date": {
+        "start": "2026-01-01",
+        "end": "2026-03-31"
+      }
+    },
+    "output_format": "xlsx"
+  }
+}

@@ -1,0 +1,9 @@
+From: Diego Lopez <diego.lopez@example.test>
+Subject: Global raw extract
+
+Hi,
+
+Please send the global customer-level raw extract for all of 2025 with revenue, gross margin and units. CSV is fine.
+
+Thanks,
+Diego

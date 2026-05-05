@@ -41,12 +41,12 @@ Acceptance criteria:
 
 Goal: create a realistic but safe data and policy environment.
 
-- [ ] Define `SalesOrders` schema.
-- [ ] Generate synthetic sales dataset.
-- [ ] Create requester profiles with roles, regions, and entitlements.
-- [ ] Define policy fixtures for margin access, regional access, raw extract approval, and customer-level restrictions.
-- [ ] Add sample inbound requests covering clear, ambiguous, unauthorized, and approval-required cases.
-- [ ] Add expected structured outputs for each sample request.
+- [x] Define `SalesOrders` schema.
+- [x] Generate synthetic sales dataset.
+- [x] Create requester profiles with roles, regions, and entitlements.
+- [x] Define policy fixtures for margin access, regional access, raw extract approval, and customer-level restrictions.
+- [x] Add sample inbound requests covering clear, ambiguous, unauthorized, and approval-required cases.
+- [x] Add expected structured outputs for each sample request.
 
 Acceptance criteria:
 

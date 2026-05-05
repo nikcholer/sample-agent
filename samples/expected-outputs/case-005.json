@@ -1,0 +1,29 @@
+{
+  "case_id": "case-005",
+  "requester_id": "u-1005",
+  "expected_outcome": "approval_required",
+  "structured_request": {
+    "report_type": "top_n",
+    "metrics": ["revenue"],
+    "dimensions": ["customer_name"],
+    "date_range": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "label": "Q1 2026"
+    },
+    "filters": {
+      "country": ["Japan"]
+    },
+    "output_format": "xlsx",
+    "purpose": "product planning",
+    "limit": 20,
+    "sort_by": "revenue"
+  },
+  "policy_decision": {
+    "decision": "approval_required",
+    "reason_codes": ["customer_level_approval_required"],
+    "approval_required": true,
+    "approver": "u-2003",
+    "excluded_fields": []
+  }
+}

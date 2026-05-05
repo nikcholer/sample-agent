@@ -129,7 +129,9 @@ Suggested reason codes:
 - `country_not_permitted`
 - `margin_not_permitted`
 - `customer_level_approval_required`
+- `customer_level_not_permitted`
 - `raw_extract_approval_required`
+- `raw_extract_not_permitted`
 - `date_range_too_broad`
 - `missing_business_purpose`
 - `invalid_date_range`

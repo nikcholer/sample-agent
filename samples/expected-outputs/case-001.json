@@ -1,0 +1,39 @@
+{
+  "case_id": "case-001",
+  "requester_id": "u-1001",
+  "expected_outcome": "generated_report",
+  "structured_request": {
+    "report_type": "sales_summary",
+    "metrics": ["revenue"],
+    "dimensions": ["region"],
+    "date_range": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "label": "Q4 2025"
+    },
+    "filters": {
+      "country": ["UK"]
+    },
+    "output_format": "xlsx",
+    "purpose": "trading review"
+  },
+  "policy_decision": {
+    "decision": "allowed",
+    "reason_codes": ["allowed"],
+    "approval_required": false,
+    "excluded_fields": []
+  },
+  "report_plan": {
+    "source_table": "SalesOrders",
+    "group_by": ["region"],
+    "metrics": ["revenue"],
+    "filters": {
+      "country": ["UK"],
+      "order_date": {
+        "start": "2025-10-01",
+        "end": "2025-12-31"
+      }
+    },
+    "output_format": "xlsx"
+  }
+}

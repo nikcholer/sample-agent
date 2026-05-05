@@ -1,0 +1,9 @@
+From: Ben Carter <ben.carter@example.test>
+Subject: Ireland margin breakdown
+
+Hi Sales Data team,
+
+Please send Q4 2025 Ireland revenue and gross margin by product category for the sales review. Excel is fine.
+
+Thanks,
+Ben

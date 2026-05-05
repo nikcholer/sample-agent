@@ -84,11 +84,11 @@ Expected outcome:
 | ID | Request summary | Expected outcome |
 | --- | --- | --- |
 | `case-001` | Q4 2025 UK revenue by region as Excel | Generate report |
-| `case-002` | "Sales for last quarter by region" | Clarify metric and date scope if reference period unavailable |
+| `case-002` | "Sales for last quarter by region" | Clarify metric and geography; resolve last quarter against the fixture reference date |
 | `case-003` | UK revenue and gross margin by product category from requester with margin access | Generate report |
 | `case-004` | Gross margin requested by requester without margin access | Clarify allowed alternative or reject |
 | `case-005` | Top 20 customers by revenue | Approval required |
-| `case-006` | Global customer-level raw extract from regional requester | Reject or approval required depending on fixture policy |
+| `case-006` | Global customer-level raw extract from regional requester | Reject as outside entitlement and not approvable in the requested scope |
 | `case-007` | Marketing attribution dashboard | Reject unsupported |
 | `case-008` | Monthly EMEA revenue trend for 2025 | Generate report if requester has EMEA access |
 

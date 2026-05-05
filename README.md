@@ -59,5 +59,6 @@ python -m pytest
 - [Policy and permissions](docs/policy-and-permissions.md)
 - [Clarification rules](docs/clarification-rules.md)
 - [Evaluation plan](docs/evaluation-plan.md)
+- [Synthetic business domain](docs/synthetic-business-domain.md)
 - [Plan review](docs/plan-review.md)
 - [Source chat PDF](docs/agent-demo.pdf)

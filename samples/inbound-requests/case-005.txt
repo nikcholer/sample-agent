@@ -1,0 +1,9 @@
+From: Eva Chen <eva.chen@example.test>
+Subject: Top Japan customers
+
+Hi,
+
+Can you send the top 20 Japan customers by revenue for Q1 2026? I need it for product planning.
+
+Thanks,
+Eva

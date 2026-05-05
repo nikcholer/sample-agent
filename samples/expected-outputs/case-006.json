@@ -1,0 +1,32 @@
+{
+  "case_id": "case-006",
+  "requester_id": "u-1004",
+  "expected_outcome": "rejected",
+  "structured_request": {
+    "report_type": "filtered_raw_extract",
+    "metrics": ["revenue", "gross_margin", "units"],
+    "dimensions": ["customer_name"],
+    "date_range": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "label": "2025"
+    },
+    "filters": {
+      "region": ["EMEA", "Americas", "APAC"]
+    },
+    "output_format": "csv",
+    "purpose": null
+  },
+  "policy_decision": {
+    "decision": "rejected",
+    "reason_codes": [
+      "region_not_permitted",
+      "country_not_permitted",
+      "margin_not_permitted",
+      "customer_level_not_permitted",
+      "raw_extract_not_permitted"
+    ],
+    "approval_required": false,
+    "excluded_fields": ["gross_margin", "customer_name"]
+  }
+}

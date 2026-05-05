@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/sales_orders.schema.json",
+  "title": "SalesOrders",
+  "description": "Synthetic sales order row used by the portable email-to-report agent demo.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "order_id",
+    "order_date",
+    "region",
+    "country",
+    "customer_segment",
+    "product_category",
+    "product_name",
+    "customer_name",
+    "salesperson",
+    "channel",
+    "revenue",
+    "gross_margin",
+    "units"
+  ],
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "pattern": "^SO-[0-9]{6}-[0-9]{4}$"
+    },
+    "order_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "region": {
+      "type": "string",
+      "enum": ["EMEA", "Americas", "APAC"]
+    },
+    "country": {
+      "type": "string",
+      "enum": [
+        "Australia",
+        "Brazil",
+        "Canada",
+        "France",
+        "Germany",
+        "Ireland",
+        "Japan",
+        "Netherlands",
+        "Singapore",
+        "UK",
+        "USA"
+      ]
+    },
+    "customer_segment": {
+      "type": "string",
+      "enum": ["Enterprise", "Mid-Market", "SMB"]
+    },
+    "product_category": {
+      "type": "string",
+      "enum": ["Hardware", "Services", "Software"]
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "salesperson": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["Direct", "Online", "Partner"]
+    },
+    "revenue": {
+      "type": "number",
+      "minimum": 0
+    },
+    "gross_margin": {
+      "type": "number",
+      "minimum": 0
+    },
+    "units": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

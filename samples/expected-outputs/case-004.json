@@ -1,0 +1,29 @@
+{
+  "case_id": "case-004",
+  "requester_id": "u-1002",
+  "expected_outcome": "clarification_required",
+  "structured_request": {
+    "report_type": "product_breakdown",
+    "metrics": ["revenue", "gross_margin"],
+    "dimensions": ["product_category"],
+    "date_range": {
+      "start": "2025-10-01",
+      "end": "2025-12-31",
+      "label": "Q4 2025"
+    },
+    "filters": {
+      "country": ["Ireland"]
+    },
+    "output_format": "xlsx",
+    "purpose": "sales review"
+  },
+  "policy_decision": {
+    "decision": "clarification_required",
+    "reason_codes": ["margin_not_permitted", "clarification_required"],
+    "approval_required": false,
+    "excluded_fields": ["gross_margin"]
+  },
+  "clarification_questions": [
+    "You do not have entitlement for gross margin in this workflow. Please reply in this email thread to confirm whether a revenue-only product category breakdown would meet the need."
+  ]
+}

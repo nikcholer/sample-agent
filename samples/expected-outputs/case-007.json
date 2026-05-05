@@ -1,0 +1,20 @@
+{
+  "case_id": "case-007",
+  "requester_id": "u-1003",
+  "expected_outcome": "rejected",
+  "structured_request": {
+    "report_type": "unsupported",
+    "metrics": [],
+    "dimensions": [],
+    "date_range": null,
+    "filters": {},
+    "output_format": null,
+    "purpose": "marketing attribution dashboard"
+  },
+  "policy_decision": {
+    "decision": "rejected",
+    "reason_codes": ["unsupported_request_type"],
+    "approval_required": false,
+    "excluded_fields": []
+  }
+}

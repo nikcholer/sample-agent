@@ -1,0 +1,67 @@
+[
+  {
+    "requester_id": "u-1001",
+    "name": "Amira Shah",
+    "email": "amira.shah@example.test",
+    "department": "Sales",
+    "role": "Regional Sales Manager",
+    "allowed_regions": ["EMEA"],
+    "allowed_countries": ["UK", "Ireland"],
+    "can_view_margin": true,
+    "can_view_customer_level": false,
+    "can_view_raw_extract": false,
+    "approval_manager": "u-2001"
+  },
+  {
+    "requester_id": "u-1002",
+    "name": "Ben Carter",
+    "email": "ben.carter@example.test",
+    "department": "Sales Operations",
+    "role": "Sales Operations Analyst",
+    "allowed_regions": ["EMEA"],
+    "allowed_countries": ["UK", "Ireland", "Germany", "France", "Netherlands"],
+    "can_view_margin": false,
+    "can_view_customer_level": false,
+    "can_view_raw_extract": false,
+    "approval_manager": "u-2001"
+  },
+  {
+    "requester_id": "u-1003",
+    "name": "Chloe Martin",
+    "email": "chloe.martin@example.test",
+    "department": "Executive",
+    "role": "Global Sales Director",
+    "allowed_regions": ["EMEA", "Americas", "APAC"],
+    "allowed_countries": ["*"],
+    "can_view_margin": true,
+    "can_view_customer_level": true,
+    "can_view_raw_extract": true,
+    "approval_manager": null
+  },
+  {
+    "requester_id": "u-1004",
+    "name": "Diego Lopez",
+    "email": "diego.lopez@example.test",
+    "department": "Sales",
+    "role": "Account Manager",
+    "allowed_regions": ["Americas"],
+    "allowed_countries": ["USA"],
+    "can_view_margin": false,
+    "can_view_customer_level": false,
+    "can_view_raw_extract": false,
+    "approval_manager": "u-2002"
+  },
+  {
+    "requester_id": "u-1005",
+    "name": "Eva Chen",
+    "email": "eva.chen@example.test",
+    "department": "Product",
+    "role": "Product Manager",
+    "allowed_regions": ["APAC"],
+    "allowed_countries": ["Japan", "Australia", "Singapore"],
+    "can_view_margin": false,
+    "can_view_customer_level": false,
+    "can_view_raw_extract": false,
+    "approval_manager": "u-2003"
+  }
+]

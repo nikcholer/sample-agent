@@ -1,0 +1,33 @@
+{
+  "case_id": "case-002",
+  "requester_id": "u-1002",
+  "expected_outcome": "clarification_required",
+  "structured_request": {
+    "report_type": "sales_summary",
+    "metrics": [],
+    "ambiguous_terms": {
+      "sales": ["revenue", "units", "gross_margin"]
+    },
+    "dimensions": ["region"],
+    "date_range": {
+      "start": "2026-01-01",
+      "end": "2026-03-31",
+      "label": "last quarter",
+      "reference_date": "2026-05-05"
+    },
+    "filters": {},
+    "output_format": null,
+    "purpose": "Monday deck"
+  },
+  "missing_fields": ["metrics", "geography"],
+  "policy_decision": {
+    "decision": "deferred",
+    "reason_codes": ["clarification_required"],
+    "approval_required": false,
+    "excluded_fields": []
+  },
+  "clarification_questions": [
+    "Please reply in this email thread and confirm whether sales means revenue, units, gross margin, or all permitted metrics.",
+    "Please confirm the country or region for the report."
+  ]
+}

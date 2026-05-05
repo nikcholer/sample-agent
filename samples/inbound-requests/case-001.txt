@@ -1,0 +1,9 @@
+From: Amira Shah <amira.shah@example.test>
+Subject: Q4 UK sales by region
+
+Hi Sales Data team,
+
+Please send Q4 2025 UK revenue by region as Excel. It is for next week's trading review.
+
+Thanks,
+Amira

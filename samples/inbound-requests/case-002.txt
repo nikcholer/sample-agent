@@ -1,0 +1,9 @@
+From: Ben Carter <ben.carter@example.test>
+Subject: Sales for last quarter
+
+Hi,
+
+Can I get sales for last quarter by region? Need it for a Monday deck.
+
+Thanks,
+Ben

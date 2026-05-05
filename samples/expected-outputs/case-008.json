@@ -1,0 +1,39 @@
+{
+  "case_id": "case-008",
+  "requester_id": "u-1002",
+  "expected_outcome": "generated_report",
+  "structured_request": {
+    "report_type": "monthly_trend",
+    "metrics": ["revenue"],
+    "dimensions": ["month"],
+    "date_range": {
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "label": "2025"
+    },
+    "filters": {
+      "region": ["EMEA"]
+    },
+    "output_format": "csv",
+    "purpose": "annual planning pack"
+  },
+  "policy_decision": {
+    "decision": "allowed",
+    "reason_codes": ["allowed"],
+    "approval_required": false,
+    "excluded_fields": []
+  },
+  "report_plan": {
+    "source_table": "SalesOrders",
+    "group_by": ["month"],
+    "metrics": ["revenue"],
+    "filters": {
+      "region": ["EMEA"],
+      "order_date": {
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+      }
+    },
+    "output_format": "csv"
+  }
+}

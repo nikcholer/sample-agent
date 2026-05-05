@@ -1,0 +1,9 @@
+From: Ben Carter <ben.carter@example.test>
+Subject: Monthly EMEA revenue trend
+
+Hi,
+
+Please send monthly EMEA revenue trend for 2025 as CSV for the annual planning pack.
+
+Thanks,
+Ben

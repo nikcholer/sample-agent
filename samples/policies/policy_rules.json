@@ -1,0 +1,111 @@
+{
+  "policy_version": "2026-05-05",
+  "reference_date": "2026-05-05",
+  "max_date_range_days": 731,
+  "supported_output_formats": ["csv", "xlsx"],
+  "supported_report_types": [
+    "sales_summary",
+    "product_breakdown",
+    "monthly_trend",
+    "top_n",
+    "filtered_raw_extract"
+  ],
+  "metrics": {
+    "revenue": {
+      "sensitivity": "low",
+      "requires_entitlement": null
+    },
+    "units": {
+      "sensitivity": "low",
+      "requires_entitlement": null
+    },
+    "gross_margin": {
+      "sensitivity": "medium",
+      "requires_entitlement": "can_view_margin"
+    }
+  },
+  "dimensions": {
+    "month": {
+      "sensitivity": "low"
+    },
+    "region": {
+      "sensitivity": "low"
+    },
+    "country": {
+      "sensitivity": "low"
+    },
+    "product_category": {
+      "sensitivity": "low"
+    },
+    "product_name": {
+      "sensitivity": "medium"
+    },
+    "channel": {
+      "sensitivity": "low"
+    },
+    "customer_segment": {
+      "sensitivity": "low"
+    },
+    "customer_name": {
+      "sensitivity": "high",
+      "requires_entitlement": "can_view_customer_level"
+    }
+  },
+  "rules": [
+    {
+      "id": "unknown_requester",
+      "decision": "reject",
+      "description": "Reject requests when no requester profile is available."
+    },
+    {
+      "id": "region_not_permitted",
+      "decision": "reject",
+      "description": "Reject requests outside the requester's allowed regions unless a narrower allowed scope is explicitly accepted."
+    },
+    {
+      "id": "country_not_permitted",
+      "decision": "reject",
+      "description": "Reject requests outside the requester's allowed countries unless the requester has wildcard country access."
+    },
+    {
+      "id": "margin_not_permitted",
+      "decision": "clarify_or_reject",
+      "description": "Do not include gross margin unless the requester has margin entitlement."
+    },
+    {
+      "id": "customer_level_approval_required",
+      "decision": "approval_required",
+      "description": "Customer-level outputs require entitlement or manager approval."
+    },
+    {
+      "id": "customer_level_not_permitted",
+      "decision": "reject",
+      "description": "Reject customer-level outputs when the requester has no entitlement and the requested scope is outside an approvable boundary."
+    },
+    {
+      "id": "raw_extract_approval_required",
+      "decision": "approval_required",
+      "description": "Raw row-level extracts require raw-extract entitlement or manager approval."
+    },
+    {
+      "id": "raw_extract_not_permitted",
+      "decision": "reject",
+      "description": "Reject raw row-level extracts when the requester has no entitlement and the requested scope is outside an approvable boundary."
+    },
+    {
+      "id": "date_range_too_broad",
+      "decision": "clarify",
+      "description": "Ask the requester to narrow date ranges over the configured maximum."
+    },
+    {
+      "id": "unsupported_request_type",
+      "decision": "reject",
+      "description": "Reject request types outside the supported report family."
+    },
+    {
+      "id": "missing_business_purpose",
+      "decision": "clarify",
+      "description": "Ask for purpose when sensitive fields or approval-prone outputs are requested."
+    }
+  ]
+}

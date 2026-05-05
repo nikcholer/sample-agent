@@ -1,0 +1,9 @@
+From: Chloe Martin <chloe.martin@example.test>
+Subject: Marketing attribution dashboard
+
+Hi team,
+
+Can you build a dashboard comparing campaign spend to sales pipeline and attribution by channel?
+
+Thanks,
+Chloe
