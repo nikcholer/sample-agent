@@ -21,10 +21,10 @@ The portable core still owns policy, report generation, response drafting, and a
 
 The current OpenAI Agents SDK documentation describes the main primitives used here:
 
-- `Agent` for model instructions, tools, and structured outputs.
+- `Agent` for model instructions and tools.
 - `Runner.run_sync()` / `Runner.run()` for executing the agent loop.
 - `@function_tool` for exposing Python functions as tools.
-- `output_type` for structured final outputs.
+- `tool_use_behavior="stop_on_first_tool"` for treating the portable core result as the run result.
 - built-in tracing around `Runner` runs and function tool calls.
 
 References:
@@ -45,9 +45,9 @@ References:
 | `agent.py` | `Agent` construction. |
 | `runner.py` | Fixture and raw-email runner helpers. |
 
-The function tool is registered with `strict_mode=False`, and the final output type is wrapped with `AgentOutputSchema(..., strict_json_schema=False)`. The portable request contract includes dictionary-shaped fields such as `filters`, `ambiguous_terms`, `structured_request`, and `audit_event`; in `openai-agents==0.15.1`, strict schemas reject those `additionalProperties` shapes. The core still validates the structured request after the tool is called.
+The function tool is registered with `strict_mode=False`. The portable request contract includes dictionary-shaped fields such as `filters`, `ambiguous_terms`, `structured_request`, and `audit_event`; in `openai-agents==0.15.1`, strict schemas reject those `additionalProperties` shapes. The core still validates the structured request after the tool is called.
 
-The agent is also configured with `tool_choice="required"` and `tool_use_behavior="stop_on_first_tool"`. This prevents a model from satisfying the final schema with placeholder values without calling the portable core. The tool result is shaped to match the final output schema, so the first tool result becomes the final result.
+The agent is also configured with `tool_choice="required"` and `tool_use_behavior="stop_on_first_tool"`. This prevents a model from satisfying a final schema with placeholder values without calling the portable core. The live function tool returns JSON text, which the runner validates into `AgentFinalOutput` after the SDK run completes. The agent intentionally does not set `output_type` for the live model call, because OpenAI-compatible providers can vary in how well they support model-side structured response schemas.
 
 ## Running
 
@@ -71,7 +71,7 @@ python tools\run_openai_agent_case.py case-001
 
 ## Together AI / OpenAI-Compatible Providers
 
-The OpenAI Agents SDK is open source, but that does not automatically guarantee every model backend works. The backend must support the API features this adapter uses: Chat Completions, function/tool calling, and structured JSON output.
+The OpenAI Agents SDK is open source, but that does not automatically guarantee every model backend works. The backend must support the API features this adapter uses: Chat Completions and function/tool calling.
 
 Together AI exposes an OpenAI-compatible API at `https://api.together.xyz/v1`. To run the same adapter against Together:
 
@@ -82,7 +82,7 @@ $env:OPENAI_AGENT_MODEL = "openai/gpt-oss-20b"
 python tools\run_openai_agent_case.py case-001
 ```
 
-If `OPENAI_AGENT_MODEL` is unset and `OPENAI_AGENT_PROVIDER=together`, the adapter defaults to `openai/gpt-oss-20b` because Together documents it as supporting both function calling and structured outputs.
+If `OPENAI_AGENT_MODEL` is unset and `OPENAI_AGENT_PROVIDER=together`, the adapter defaults to `openai/gpt-oss-20b` because Together documents it as supporting function calling.
 
 Together runs through the SDK's OpenAI-compatible provider path with `use_responses=False`, because Together's compatibility examples use Chat Completions. OpenAI tracing is disabled by default for Together runs; set `OPENAI_AGENTS_ENABLE_TRACING=true` if you deliberately want OpenAI-hosted traces as well.
 

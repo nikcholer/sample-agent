@@ -6,11 +6,15 @@ from pathlib import Path
 
 from agent_core.fixtures import load_expected_case
 from implementations.openai_agents_sdk.instructions import INTAKE_AGENT_INSTRUCTIONS
+from implementations.openai_agents_sdk.runner import _parse_tool_output
 from implementations.openai_agents_sdk.schemas import (
     AgentFinalOutput,
     ReportRequestInput,
 )
-from implementations.openai_agents_sdk.tools import process_sales_report_request_raw
+from implementations.openai_agents_sdk.tools import (
+    process_sales_report_request_for_agent,
+    process_sales_report_request_raw,
+)
 
 
 class OpenAIAgentsAdapterTests(unittest.TestCase):
@@ -59,6 +63,23 @@ class OpenAIAgentsAdapterTests(unittest.TestCase):
         self.assertEqual(final.outcome, "clarification_required")
         self.assertIn("reply in this email thread", final.response_message)
 
+    def test_agent_tool_output_is_json_text_for_non_openai_providers(self) -> None:
+        expected = load_expected_case("case-001")
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            tool_output = process_sales_report_request_for_agent(
+                request_id="case-001",
+                requester_email="amira.shah@example.test",
+                structured_request=ReportRequestInput(**expected["structured_request"]),
+                output_dir=str(tmp_path / "reports"),
+                audit_dir=str(tmp_path / "traces"),
+            )
+
+        parsed = _parse_tool_output(tool_output)
+        final = AgentFinalOutput(**parsed)
+        self.assertEqual(final.outcome, "generated_report")
+        self.assertEqual(final.requester_id, "u-1001")
+
     def test_tool_resolves_requester_email(self) -> None:
         expected = load_expected_case("case-001")
         with tempfile.TemporaryDirectory() as tmp:
@@ -87,6 +108,7 @@ class OpenAIAgentsAdapterTests(unittest.TestCase):
         self.assertEqual(agent.model_settings.tool_choice, "required")
         self.assertFalse(agent.model_settings.parallel_tool_calls)
         self.assertEqual(agent.tool_use_behavior, "stop_on_first_tool")
+        self.assertIsNone(agent.output_type)
         self.assertIsInstance(agent.tools[0], FunctionTool)
         self.assertEqual(agent.tools[0].name, "process_sales_report_request")
 

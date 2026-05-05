@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Callable, TypeVar
 
@@ -53,6 +54,30 @@ def process_sales_report_request_raw(
     return ToolResult(**payload).model_dump(mode="json")
 
 
+def process_sales_report_request_for_agent(
+    *,
+    request_id: str,
+    requester_id: str | None = None,
+    requester_email: str | None = None,
+    structured_request: ReportRequestInput,
+    output_dir: str = "generated/reports",
+    audit_dir: str = "generated/traces",
+    parent_request_id: str | None = None,
+) -> str:
+    """Run the portable core and return JSON text for the SDK final output."""
+
+    result = process_sales_report_request_raw(
+        request_id=request_id,
+        requester_id=requester_id,
+        requester_email=requester_email,
+        structured_request=structured_request,
+        output_dir=output_dir,
+        audit_dir=audit_dir,
+        parent_request_id=parent_request_id,
+    )
+    return json.dumps(result, sort_keys=True)
+
+
 def _resolve_requester_id(requester_email: str | None) -> str:
     if requester_email is None:
         return "unknown"
@@ -63,4 +88,4 @@ def _resolve_requester_id(requester_email: str | None) -> str:
     return normalized
 
 
-process_sales_report_request = _optional_function_tool(process_sales_report_request_raw)
+process_sales_report_request = _optional_function_tool(process_sales_report_request_for_agent)

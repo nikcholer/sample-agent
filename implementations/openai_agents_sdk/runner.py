@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import ast
+import json
 from pathlib import Path
+from typing import Any
 
 from implementations.openai_agents_sdk.agent import build_intake_agent
 from implementations.openai_agents_sdk.provider_config import (
@@ -39,6 +42,8 @@ def run_email_request(
         return _validate_final_output(final_output)
     if isinstance(final_output, dict):
         return _validate_final_output(AgentFinalOutput(**final_output))
+    if isinstance(final_output, str):
+        return _validate_final_output(AgentFinalOutput(**_parse_tool_output(final_output)))
     raise TypeError(f"Unexpected final output type: {type(final_output)!r}")
 
 
@@ -80,3 +85,13 @@ def _validate_final_output(output: AgentFinalOutput) -> AgentFinalOutput:
     if output.requester_id in {"", "...", "... or null", "null"}:
         raise RuntimeError("Agent returned a placeholder requester_id.")
     return output
+
+
+def _parse_tool_output(output: str) -> dict[str, Any]:
+    try:
+        parsed = json.loads(output)
+    except json.JSONDecodeError:
+        parsed = ast.literal_eval(output)
+    if not isinstance(parsed, dict):
+        raise TypeError(f"Unexpected final output payload: {type(parsed)!r}")
+    return parsed
