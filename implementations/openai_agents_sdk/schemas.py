@@ -37,6 +37,7 @@ class ReportRequestInput(BaseModel):
 
 class ToolResult(BaseModel):
     request_id: str
+    requester_id: str
     outcome: Literal[
         "generated_report",
         "clarification_required",

@@ -7,7 +7,7 @@ from implementations.openai_agents_sdk.tools import process_sales_report_request
 
 def build_intake_agent(model: str | None = None):
     try:
-        from agents import Agent, AgentOutputSchema
+        from agents import Agent, AgentOutputSchema, ModelSettings
     except ImportError as exc:
         raise RuntimeError(
             "The OpenAI Agents SDK is not installed. Install it with "
@@ -22,6 +22,11 @@ def build_intake_agent(model: str | None = None):
             AgentFinalOutput,
             strict_json_schema=False,
         ),
+        "model_settings": ModelSettings(
+            tool_choice="required",
+            parallel_tool_calls=False,
+        ),
+        "tool_use_behavior": "stop_on_first_tool",
     }
     if model:
         kwargs["model"] = model

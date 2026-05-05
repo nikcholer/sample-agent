@@ -47,6 +47,8 @@ References:
 
 The function tool is registered with `strict_mode=False`, and the final output type is wrapped with `AgentOutputSchema(..., strict_json_schema=False)`. The portable request contract includes dictionary-shaped fields such as `filters`, `ambiguous_terms`, `structured_request`, and `audit_event`; in `openai-agents==0.15.1`, strict schemas reject those `additionalProperties` shapes. The core still validates the structured request after the tool is called.
 
+The agent is also configured with `tool_choice="required"` and `tool_use_behavior="stop_on_first_tool"`. This prevents a model from satisfying the final schema with placeholder values without calling the portable core. The tool result is shaped to match the final output schema, so the first tool result becomes the final result.
+
 ## Running
 
 The local environment used while creating this project did not include `openai-agents`,

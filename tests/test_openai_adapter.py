@@ -54,7 +54,6 @@ class OpenAIAgentsAdapterTests(unittest.TestCase):
             )
 
         final = AgentFinalOutput(
-            requester_id=expected["requester_id"],
             **tool_result,
         )
         self.assertEqual(final.outcome, "clarification_required")
@@ -73,7 +72,23 @@ class OpenAIAgentsAdapterTests(unittest.TestCase):
             )
 
         self.assertEqual(result["audit_event"]["requester_id"], "u-1001")
+        self.assertEqual(result["requester_id"], "u-1001")
         self.assertEqual(result["outcome"], "generated_report")
+
+    def test_agent_forces_tool_use_and_stops_on_tool_output(self) -> None:
+        try:
+            from agents import FunctionTool
+        except ImportError:
+            self.skipTest("OpenAI Agents SDK is not installed in this Python environment.")
+
+        from implementations.openai_agents_sdk.agent import build_intake_agent
+
+        agent = build_intake_agent("gpt-5-mini")
+        self.assertEqual(agent.model_settings.tool_choice, "required")
+        self.assertFalse(agent.model_settings.parallel_tool_calls)
+        self.assertEqual(agent.tool_use_behavior, "stop_on_first_tool")
+        self.assertIsInstance(agent.tools[0], FunctionTool)
+        self.assertEqual(agent.tools[0].name, "process_sales_report_request")
 
     def test_instructions_preserve_portable_core_boundary(self) -> None:
         self.assertIn("call the portable core tool exactly once", INTAKE_AGENT_INSTRUCTIONS)

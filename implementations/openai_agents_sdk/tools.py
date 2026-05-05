@@ -17,7 +17,11 @@ def _optional_function_tool(func: F) -> F | Any:
         from agents import function_tool
     except ImportError:
         return func
-    return function_tool(func, strict_mode=False)
+    return function_tool(
+        func,
+        name_override="process_sales_report_request",
+        strict_mode=False,
+    )
 
 
 def process_sales_report_request_raw(
@@ -44,7 +48,9 @@ def process_sales_report_request_raw(
         audit_dir=Path(audit_dir),
         parent_request_id=parent_request_id,
     )
-    return ToolResult(**result.to_dict()).model_dump(mode="json")
+    payload = result.to_dict()
+    payload["requester_id"] = result.audit_event.requester_id
+    return ToolResult(**payload).model_dump(mode="json")
 
 
 def _resolve_requester_id(requester_email: str | None) -> str:

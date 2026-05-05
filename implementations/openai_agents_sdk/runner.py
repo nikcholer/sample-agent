@@ -36,9 +36,9 @@ def run_email_request(
         result = Runner.run_sync(agent, prompt, max_turns=6, run_config=run_config)
     final_output = result.final_output
     if isinstance(final_output, AgentFinalOutput):
-        return final_output
+        return _validate_final_output(final_output)
     if isinstance(final_output, dict):
-        return AgentFinalOutput(**final_output)
+        return _validate_final_output(AgentFinalOutput(**final_output))
     raise TypeError(f"Unexpected final output type: {type(final_output)!r}")
 
 
@@ -70,3 +70,13 @@ Process this request. Extract the requester from the From line, identify the mat
 requester email address, create the structured report request, call the portable core
 tool, and return the structured final output.
 """
+
+
+def _validate_final_output(output: AgentFinalOutput) -> AgentFinalOutput:
+    if not output.audit_event:
+        raise RuntimeError("Agent returned no audit event; the portable core tool was not used.")
+    if not output.policy_decision:
+        raise RuntimeError("Agent returned no policy decision; the portable core tool was not used.")
+    if output.requester_id in {"", "...", "... or null", "null"}:
+        raise RuntimeError("Agent returned a placeholder requester_id.")
+    return output
