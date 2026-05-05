@@ -42,6 +42,7 @@ Expected outcome:
 - missing fields identified
 - no report generated
 - targeted clarification question produced
+- clarification response asks the requester to reply in the same thread or include the request reference
 - audit event created
 
 ### Rejected Request
@@ -140,6 +141,7 @@ Responses should be checked for:
 - filters stated
 - exclusions stated
 - next action stated when clarification or approval is needed
+- thread or request-reference instruction when clarification is needed
 - no unsupported claims
 
 Response checks may begin as simple text assertions and later become rubric-based review if useful.
@@ -175,6 +177,7 @@ A case fails when:
 - restricted data appears
 - an unsupported request is fulfilled
 - the clarification question is too vague to move the process forward
+- a clarification response gives no way to correlate the reply with the original request
 - the output cannot be reproduced from fixtures
 
 ## Reporting Results

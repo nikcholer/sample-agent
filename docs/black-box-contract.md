@@ -110,7 +110,10 @@ Required outputs:
 - response message with specific questions
 - missing or ambiguous fields
 - structured request with known fields
+- correlation reference for the original request or thread
 - audit event
+
+Clarification terminates the current processing run. A later requester reply is treated as a new inbound event that may be correlated with the original request. The system should encourage the requester to reply in the same email thread so the new message can be linked to the earlier structured request and audit trail.
 
 ### Rejection
 
@@ -201,6 +204,7 @@ The workflow should return a controlled exception outcome when:
 Every request must produce an audit event containing:
 
 - request ID
+- correlation ID or parent request ID, if this is a clarification reply
 - timestamp
 - requester ID
 - original request text reference

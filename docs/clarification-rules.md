@@ -6,6 +6,8 @@ Clarification is required when a request is potentially valid but not specific e
 
 The goal is to turn ambiguous human language into a complete structured request.
 
+Clarification is a terminal outcome for the current processing run. The system is not "paused" inside the same run; it has reached the safest possible outcome with the information available. When the requester replies, that reply starts a new run. If the reply preserves the email thread or includes the request reference, the new run can merge the additional information with the earlier structured request and continue down a different path.
+
 ## When to Clarify
 
 Clarify when any required field is missing, ambiguous, or unsafe to assume.
@@ -64,6 +66,7 @@ Clarification questions should be:
 - phrased in business language
 - explicit about available choices when helpful
 - clear about why the answer matters
+- explicit that the requester should reply in the same email thread where possible
 
 Poor:
 
@@ -74,7 +77,7 @@ Please provide more details.
 Better:
 
 ```text
-I can prepare that. Please confirm the metric you want: revenue, units, gross margin, or all permitted metrics. Also confirm the country or region for the report.
+I can prepare that. Please reply in this email thread and confirm the metric you want: revenue, units, gross margin, or all permitted metrics. Also confirm the country or region for the report.
 ```
 
 ## Examples
@@ -156,6 +159,7 @@ I cannot provide global customer-level data under your current access. I can pre
 A clarification outcome should include:
 
 - original request reference
+- correlation ID or parent request ID
 - structured fields already extracted
 - missing fields
 - ambiguous fields
@@ -164,11 +168,13 @@ A clarification outcome should include:
 
 ## Multi-Turn Rule
 
-The first implementation does not need full conversation memory. It can model clarification as:
+The first implementation does not need full conversation memory. It can model clarification as separate processing runs linked by a correlation ID:
 
 1. inbound request
-2. clarification response
-3. second inbound message containing the missing fields
+2. terminal clarification response
+3. second inbound message containing the missing fields, ideally in the same email thread
 4. merged structured request
 
 The merge behavior should be deterministic where possible and visible in the audit event.
+
+If the requester starts a new email thread without a request reference, the system may still interpret the message as a fresh request, but it should not assume it belongs to the earlier clarification unless correlation is reliable.

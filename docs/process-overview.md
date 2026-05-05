@@ -42,6 +42,8 @@ The process ends when one of these outcomes is produced:
 - a rejection with explanation
 - an approval-required response
 
+Clarification is a final outcome for a single processing run. That may feel slightly unintuitive because the business conversation is not over. The reason is that the system has done all it safely can with the information available. When the requester replies with the missing details, that reply becomes a new inbound event. If the reply keeps the original email thread intact, the system can correlate it with the earlier request, merge the new information, and run the process again. If the clarification is adequate, the second run takes the report-generation path instead of the clarification path.
+
 The process does not include real mailbox integration, real outbound email, production identity management, or live BI-platform access. Those are deployment concerns and are intentionally outside the first slice.
 
 ## Web Form Versus Agent
