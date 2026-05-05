@@ -38,7 +38,7 @@ def _approved_response(
     request: StructuredRequest,
     output_path: str | None,
 ) -> str:
-    date_label = request.date_range.label if request.date_range else "the requested period"
+    date_label = _date_range_label(request)
     filters = ", ".join(
         f"{key}: {', '.join(values)}"
         for key, values in request.filters.items()
@@ -51,6 +51,14 @@ def _approved_response(
         "No restricted fields are included. "
         f"Output: {output_path}."
     )
+
+
+def _date_range_label(request: StructuredRequest) -> str:
+    if request.date_range is None:
+        return "the requested period"
+    if request.date_range.label:
+        return request.date_range.label
+    return f"{request.date_range.start} to {request.date_range.end}"
 
 
 def _clarification_response(
