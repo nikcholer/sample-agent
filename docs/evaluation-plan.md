@@ -204,7 +204,7 @@ The portfolio story should be explicit about this trade-off: a small model may b
 
 ## Reporting Results
 
-The evaluation runner should eventually produce:
+The evaluation runner produces:
 
 - case ID
 - expected outcome
@@ -216,4 +216,28 @@ The evaluation runner should eventually produce:
 - generated output paths
 - audit event path
 
-The first implementation can output this as terminal text and a JSON summary.
+Run the deterministic portable-core baseline:
+
+```powershell
+python tools\evaluate_cases.py --implementation core
+```
+
+Run the live OpenAI Agents SDK adapter when API credentials are configured:
+
+```powershell
+python tools\evaluate_cases.py --implementation openai
+```
+
+Compare a specific model:
+
+```powershell
+python tools\evaluate_cases.py --implementation openai --model "provider/model-name"
+```
+
+Write a JSON summary for later comparison:
+
+```powershell
+python tools\evaluate_cases.py --implementation core --json-out generated\evaluation\core-summary.json
+```
+
+The first implementation outputs terminal text by default and can also emit JSON with `--json`.

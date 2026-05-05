@@ -31,10 +31,6 @@ tests/                        Unit and evaluation tests
 
 ## Quickstart
 
-Implementation is not started yet. The current milestone is repository foundation and process documentation.
-
-Planned first commands:
-
 ```powershell
 python -m venv .venv
 python -m pip install -r requirements.txt
@@ -47,12 +43,24 @@ Run one fixture through the portable core:
 python tools\run_core_case.py case-001
 ```
 
+Run the deterministic evaluation baseline:
+
+```powershell
+python tools\evaluate_cases.py --implementation core
+```
+
 Run one fixture through the OpenAI Agents SDK adapter after installing `openai-agents`
 and setting `OPENAI_API_KEY`:
 
 ```powershell
 python -m pip install -r requirements-openai.txt
 python tools\run_openai_agent_case.py case-001
+```
+
+Evaluate the live adapter against the fixture set:
+
+```powershell
+python tools\evaluate_cases.py --implementation openai
 ```
 
 Run the same adapter against Together AI:
@@ -89,6 +97,7 @@ python tools\run_openai_agent_case.py case-001 --model "provider/model-name"
 - [Policy and permissions](docs/policy-and-permissions.md)
 - [Clarification rules](docs/clarification-rules.md)
 - [Evaluation plan](docs/evaluation-plan.md)
+- [Evaluation results](docs/evaluation-results.md)
 - [Synthetic business domain](docs/synthetic-business-domain.md)
 - [Portable core](docs/portable-core.md)
 - [OpenAI Agents SDK adapter](docs/openai-agents-sdk.md)

@@ -75,6 +75,12 @@ You can also override the model for one run:
 python tools\run_openai_agent_case.py case-001 --model "your-preferred-model"
 ```
 
+To evaluate the live adapter against the fixture set:
+
+```powershell
+python tools\evaluate_cases.py --implementation openai --model "your-preferred-model"
+```
+
 ## Together AI / OpenAI-Compatible Providers
 
 The OpenAI Agents SDK is open source, but that does not automatically guarantee every model backend works. The backend must support the API features this adapter uses: Chat Completions and function/tool calling.

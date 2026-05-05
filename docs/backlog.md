@@ -100,16 +100,16 @@ Acceptance criteria:
 
 Goal: make the demo credible as an engineered workflow, not a prompt trick.
 
-- [ ] Define evaluation cases from sample inbound requests.
-- [ ] Check extraction accuracy against expected structured request fields.
-- [ ] Check policy decision accuracy.
-- [ ] Check whether clarification is requested when required.
-- [ ] Check report files contain expected filters, dimensions, and metrics.
-- [ ] Check audit events are created.
-- [ ] Add a simple command to run the evaluation set.
-- [ ] Record provider and model for each live evaluation run.
+- [x] Define evaluation cases from sample inbound requests.
+- [x] Check extraction accuracy against expected structured request fields.
+- [x] Check policy decision accuracy.
+- [x] Check whether clarification is requested when required.
+- [x] Check report files contain expected filters, dimensions, and metrics.
+- [x] Check audit events are created.
+- [x] Add a simple command to run the evaluation set.
+- [x] Record provider and model for each live evaluation run.
 - [ ] Compare at least two live models when repeated extraction failures occur.
-- [ ] Document known limitations and failure cases.
+- [x] Document known limitations and failure cases.
 
 Acceptance criteria:
 
