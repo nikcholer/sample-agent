@@ -45,7 +45,7 @@ References:
 | `agent.py` | `Agent` construction. |
 | `runner.py` | Fixture and raw-email runner helpers. |
 
-The function tool is registered with `strict_mode=False`. The portable request contract includes dictionary-shaped fields such as `filters` and `ambiguous_terms`; in `openai-agents==0.15.1`, strict tool schemas reject those `additionalProperties` shapes. The core still validates the structured request after the tool is called.
+The function tool is registered with `strict_mode=False`, and the final output type is wrapped with `AgentOutputSchema(..., strict_json_schema=False)`. The portable request contract includes dictionary-shaped fields such as `filters`, `ambiguous_terms`, `structured_request`, and `audit_event`; in `openai-agents==0.15.1`, strict schemas reject those `additionalProperties` shapes. The core still validates the structured request after the tool is called.
 
 ## Running
 
