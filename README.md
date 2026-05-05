@@ -55,6 +55,15 @@ python -m pip install -r requirements-openai.txt
 python tools\run_openai_agent_case.py case-001
 ```
 
+Run the same adapter against Together AI:
+
+```powershell
+$env:OPENAI_AGENT_PROVIDER = "together"
+$env:TOGETHER_API_KEY = "your-together-key"
+$env:OPENAI_AGENT_MODEL = "openai/gpt-oss-20b"
+python tools\run_openai_agent_case.py case-001
+```
+
 ## Design Notes
 
 - Use the model for interpretation and structured request extraction.

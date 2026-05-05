@@ -1,10 +1,13 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
-from typing import Any
 
 from implementations.openai_agents_sdk.agent import build_intake_agent
+from implementations.openai_agents_sdk.provider_config import (
+    build_run_config,
+    selected_model,
+    trace_context,
+)
 from implementations.openai_agents_sdk.schemas import AgentFinalOutput
 
 
@@ -16,17 +19,21 @@ def run_email_request(
     trace_group_id: str | None = None,
 ) -> AgentFinalOutput:
     try:
-        from agents import Runner, trace
+        from agents import Runner
     except ImportError as exc:
         raise RuntimeError(
             "The OpenAI Agents SDK is not installed. Install it with "
             "`python -m pip install -r requirements-openai.txt` to run this adapter."
         ) from exc
 
-    agent = build_intake_agent(model=model or os.getenv("OPENAI_AGENT_MODEL"))
+    agent = build_intake_agent(model=selected_model(model))
     prompt = _build_prompt(email_text=email_text, request_id=request_id)
-    with trace("portable-email-to-report", group_id=trace_group_id or request_id):
-        result = Runner.run_sync(agent, prompt, max_turns=6)
+    run_config = build_run_config()
+    with trace_context(
+        workflow_name="portable-email-to-report",
+        group_id=trace_group_id or request_id,
+    ):
+        result = Runner.run_sync(agent, prompt, max_turns=6, run_config=run_config)
     final_output = result.final_output
     if isinstance(final_output, AgentFinalOutput):
         return final_output

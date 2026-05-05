@@ -83,3 +83,5 @@ The OpenAI Agents SDK trace should show:
 - final structured output matching the tool result
 
 This confirms the intended boundary: the model interprets; the portable core validates, decides, audits, and generates outputs.
+
+For Together AI runs, OpenAI-hosted tracing is disabled by default. The same expected flow still applies; use the returned tool result, generated audit event, and local terminal output as the transcript unless tracing is explicitly enabled.
