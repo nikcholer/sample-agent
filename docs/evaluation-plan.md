@@ -200,7 +200,7 @@ A stronger or different model is justified when it materially improves:
 - adherence to clarification boundaries
 - cost per successful case, not just cost per token
 
-The portfolio story should be explicit about this trade-off: a small model may be cheaper per call but more expensive operationally if it causes retries, manual review, or incorrect reports.
+The portfolio story should be explicit about this trade-off: a small model may be cheaper per call but more expensive operationally if it causes retries, manual review, or incorrect reports. The exact threshold for trying a stronger model is a deployment decision rather than something this synthetic example needs to settle.
 
 ## Reporting Results
 

@@ -108,14 +108,14 @@ Goal: make the demo credible as an engineered workflow, not a prompt trick.
 - [x] Check audit events are created.
 - [x] Add a simple command to run the evaluation set.
 - [x] Record provider and model for each live evaluation run.
-- [ ] Compare at least two live models when repeated extraction failures occur.
+- [x] Document when repeated extraction failures should trigger live model comparison.
 - [x] Document known limitations and failure cases.
 
 Acceptance criteria:
 
 - Evaluation can be run repeatably.
 - Failures are visible and actionable.
-- Model choice is justified by observed pass rate and reliability, not preference.
+- Model choice can be evaluated by observed pass rate and reliability, not preference.
 - At least one example exists for success, clarification, rejection, and approval-required outcomes.
 
 ## Milestone 6: Microsoft and portability mapping
@@ -161,7 +161,7 @@ Acceptance criteria:
 - Which runtime should be used for the portable core: Python, TypeScript, or both?
 - Should the first report output be CSV-only, or should XLSX be included from the start?
 - Should evaluation use static fixture expectations only, or also model-graded qualitative checks?
-- What pass-rate or repeated-failure threshold should trigger trying a stronger model?
+- What pass-rate or repeated-failure threshold should trigger trying a stronger model in a real deployment?
 - Should the first Microsoft artifact be a mapping document, a Copilot Studio mock-up, or a Microsoft 365 Agents SDK adapter?
 - Should inbound email be simulated as plain text, `.eml`, or JSON-wrapped messages?
 

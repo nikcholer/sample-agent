@@ -48,10 +48,13 @@ Examples of extraction drift seen before prompt hardening:
 
 These are useful failures, not just bugs. They show why the portfolio needs a repeatable evaluation harness and why model choice should be justified by pass rate and stability.
 
+This project does not need to settle the best live model for the synthetic example. The important point is documented: repeated failures should trigger model comparison, and the harness records provider/model metadata so that comparison is possible.
+
 ## Current Limitations
 
 - The first harness uses exact fixture comparisons for structured fields. It is intentionally strict and may flag harmless wording or purpose-summary drift.
 - Response quality checks are still mostly indirect through outcome, policy, and audit checks.
 - Live model comparison is manual: choose models with `OPENAI_AGENT_MODEL` or `--model`, then compare pass rates.
+- The pass-rate threshold for trying a stronger model is deliberately left as a deployment decision.
 - Cost tracking is not automated yet, so "cost per correct case" must be calculated outside the harness for now.
 - The harness does not yet inspect every cell in generated XLSX reports; it checks file existence and expected workbook structure.
