@@ -122,13 +122,13 @@ Acceptance criteria:
 
 Goal: demonstrate avoidance of vendor lock-in and practical Microsoft awareness.
 
-- [ ] Write `docs/microsoft-copilot-mapping.md`.
-- [ ] Map portable core concepts to Copilot Studio concepts.
-- [ ] Map portable core concepts to Microsoft 365 Agents SDK/custom engine agent concepts.
-- [ ] Identify which components would live in Graph, Power Automate, Dataverse, Fabric, or a custom API.
-- [ ] Describe edge lock-in explicitly: auth, mailbox, Teams, tenant governance, approvals, publishing, and monitoring.
-- [ ] Sketch thin-adapter architecture for a Microsoft-facing implementation.
-- [ ] Decide whether to build a small Microsoft 365 Agents SDK adapter or keep this as documented architecture in v1.
+- [x] Write `docs/microsoft-copilot-mapping.md`.
+- [x] Map portable core concepts to Copilot Studio concepts.
+- [x] Map portable core concepts to Microsoft 365 Agents SDK/custom engine agent concepts.
+- [x] Identify which components would live in Graph, Power Automate, Dataverse, Fabric, or a custom API.
+- [x] Describe edge lock-in explicitly: auth, mailbox, Teams, tenant governance, approvals, publishing, and monitoring.
+- [x] Sketch thin-adapter architecture for a Microsoft-facing implementation.
+- [x] Decide whether to build a small Microsoft 365 Agents SDK adapter or keep this as documented architecture in v1.
 
 Acceptance criteria:
 

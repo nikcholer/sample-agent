@@ -101,6 +101,7 @@ python tools\run_openai_agent_case.py case-001 --model "provider/model-name"
 - [Synthetic business domain](docs/synthetic-business-domain.md)
 - [Portable core](docs/portable-core.md)
 - [OpenAI Agents SDK adapter](docs/openai-agents-sdk.md)
+- [Microsoft Copilot mapping](docs/microsoft-copilot-mapping.md)
 - [OpenAI agent transcript example](docs/openai-agent-transcript-example.md)
 - [Plan review](docs/plan-review.md)
 - [Source chat PDF](docs/agent-demo.pdf)
