@@ -180,6 +180,28 @@ A case fails when:
 - a clarification response gives no way to correlate the reply with the original request
 - the output cannot be reproduced from fixtures
 
+## Model Selection Standard
+
+Model choice is part of the evaluation, not a one-time configuration decision. The default model for a provider should be treated as a cost-conscious starting point, not a guarantee that it is capable enough for the workflow.
+
+Repeated live-adapter failures should trigger a model comparison rather than indefinite prompt tuning. Examples of repeated failures include:
+
+- the same extraction field fails in multiple runs after instructions are clear
+- a geography filter is repeatedly misclassified as a dimension
+- ambiguous terms are repeatedly over-resolved instead of sent for clarification
+- the model omits the required tool call or returns placeholders
+- provider errors indicate incomplete support for required tool-calling behavior
+
+A stronger or different model is justified when it materially improves:
+
+- fixture pass rate
+- stability across repeated runs
+- correct tool-call argument construction
+- adherence to clarification boundaries
+- cost per successful case, not just cost per token
+
+The portfolio story should be explicit about this trade-off: a small model may be cheaper per call but more expensive operationally if it causes retries, manual review, or incorrect reports.
+
 ## Reporting Results
 
 The evaluation runner should eventually produce:
@@ -189,6 +211,8 @@ The evaluation runner should eventually produce:
 - actual outcome
 - pass/fail
 - mismatched fields
+- model and provider used
+- repeat number or run ID
 - generated output paths
 - audit event path
 

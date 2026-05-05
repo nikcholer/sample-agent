@@ -69,6 +69,12 @@ $env:OPENAI_AGENT_MODEL = "your-preferred-model"
 python tools\run_openai_agent_case.py case-001
 ```
 
+You can also override the model for one run:
+
+```powershell
+python tools\run_openai_agent_case.py case-001 --model "your-preferred-model"
+```
+
 ## Together AI / OpenAI-Compatible Providers
 
 The OpenAI Agents SDK is open source, but that does not automatically guarantee every model backend works. The backend must support the API features this adapter uses: Chat Completions and function/tool calling.
@@ -85,6 +91,8 @@ python tools\run_openai_agent_case.py case-001
 If `OPENAI_AGENT_MODEL` is unset and `OPENAI_AGENT_PROVIDER=together`, the adapter defaults to `openai/gpt-oss-20b` because Together documents it as supporting function calling.
 
 Together runs through the SDK's OpenAI-compatible provider path with `use_responses=False`, because Together's compatibility examples use Chat Completions. OpenAI tracing is disabled by default for Together runs; set `OPENAI_AGENTS_ENABLE_TRACING=true` if you deliberately want OpenAI-hosted traces as well.
+
+The default Together model is a cheap starting point, not a quality claim. If live runs repeatedly misclassify extraction fields, over-resolve ambiguous requests, skip required tool behavior, or produce provider-side tool-calling errors, the next step is to run the same fixture set against another model with `OPENAI_AGENT_MODEL` or `--model`. The useful comparison is cost per correct, auditable case rather than raw token price.
 
 ## Design Boundary
 

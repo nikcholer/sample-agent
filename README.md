@@ -64,12 +64,19 @@ $env:OPENAI_AGENT_MODEL = "openai/gpt-oss-20b"
 python tools\run_openai_agent_case.py case-001
 ```
 
+To compare model behavior for one run:
+
+```powershell
+python tools\run_openai_agent_case.py case-001 --model "provider/model-name"
+```
+
 ## Design Notes
 
 - Use the model for interpretation and structured request extraction.
 - Use deterministic code for permissions, calculations, file generation, and audit logging.
 - Keep vendor-specific agent configuration outside the portable business core.
 - Make evaluation cases visible and repeatable.
+- Treat model choice as an evaluation result: a cheaper model only wins if it passes the workflow reliably.
 - Be explicit when a web form would be simpler than an agent.
 
 ## Current Planning Documents
