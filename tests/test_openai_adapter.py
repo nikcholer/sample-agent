@@ -119,6 +119,15 @@ class OpenAIAgentsAdapterTests(unittest.TestCase):
         self.assertIn("reply", INTAKE_AGENT_INSTRUCTIONS)
         self.assertIn("same email thread", INTAKE_AGENT_INSTRUCTIONS)
 
+    def test_instructions_define_extraction_normalization_rules(self) -> None:
+        self.assertIn('Treat bare "sales" as ambiguous', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('ambiguous_terms.sales', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('Region filter values are EMEA, Americas, and APAC', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('Country filter values include UK, Ireland', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('Geography terms used as scope are filters, not dimensions', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('Only add geography dimensions', INTAKE_AGENT_INSTRUCTIONS)
+        self.assertIn('"monthly" means dimension month', INTAKE_AGENT_INSTRUCTIONS)
+
 
 if __name__ == "__main__":
     unittest.main()

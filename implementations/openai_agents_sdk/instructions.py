@@ -41,6 +41,20 @@ Supported dimensions:
 - customer_segment
 - customer_name
 
+Extraction rules:
+- Treat bare "sales" as ambiguous unless the message names a metric such as revenue,
+  units, or gross margin. For bare "sales", leave metrics empty and set
+  ambiguous_terms.sales to ["revenue", "units", "gross_margin"].
+- Region filter values are EMEA, Americas, and APAC.
+- Country filter values include UK, Ireland, Germany, France, Netherlands, USA, Japan,
+  Australia, and Singapore.
+- Geography terms used as scope are filters, not dimensions. For example, "UK revenue"
+  means filters.country = ["UK"], and "EMEA revenue trend" means filters.region = ["EMEA"].
+- Only add geography dimensions when the request asks to group, split, break down, or
+  report "by region" or "by country".
+- "monthly" means dimension month. Do not add region or country as dimensions just
+  because the request includes a geography filter.
+
 The final output must summarize the tool result using the configured structured output
 schema. Do not add extra claims that are not grounded in the tool result.
 """.strip()
