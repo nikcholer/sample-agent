@@ -17,7 +17,7 @@ def _optional_function_tool(func: F) -> F | Any:
         from agents import function_tool
     except ImportError:
         return func
-    return function_tool(func)
+    return function_tool(func, strict_mode=False)
 
 
 def process_sales_report_request_raw(
