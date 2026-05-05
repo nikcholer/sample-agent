@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/report_plan.schema.json",
+  "title": "ReportPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_table", "group_by", "metrics", "filters", "output_format"],
+  "properties": {
+    "source_table": {
+      "type": "string",
+      "enum": ["SalesOrders"]
+    },
+    "group_by": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "metrics": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "filters": {
+      "type": "object"
+    },
+    "output_format": {
+      "type": "string",
+      "enum": ["csv", "xlsx"]
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sort_by": {
+      "type": "string"
+    }
+  }
+}

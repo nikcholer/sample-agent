@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/audit_event.schema.json",
+  "title": "AuditEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "timestamp",
+    "requester_id",
+    "outcome",
+    "reason_codes",
+    "structured_request",
+    "policy_decision"
+  ],
+  "properties": {
+    "request_id": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "requester_id": {"type": "string"},
+    "outcome": {
+      "type": "string",
+      "enum": ["generated_report", "clarification_required", "approval_required", "rejected"]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "structured_request": {"type": "object"},
+    "policy_decision": {"type": "object"},
+    "report_plan": {
+      "type": ["object", "null"]
+    },
+    "output_path": {
+      "type": ["string", "null"]
+    },
+    "parent_request_id": {
+      "type": ["string", "null"]
+    }
+  }
+}

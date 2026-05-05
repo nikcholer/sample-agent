@@ -58,17 +58,17 @@ Acceptance criteria:
 
 Goal: build vendor-neutral request processing primitives.
 
-- [ ] Define structured request schema.
-- [ ] Define policy decision schema.
-- [ ] Define report plan schema.
-- [ ] Define audit event schema.
-- [ ] Implement request validation and completeness checks.
-- [ ] Implement deterministic policy checks.
-- [ ] Implement deterministic report query/build logic.
-- [ ] Implement CSV output.
-- [ ] Implement XLSX output with summary, data, and request metadata tabs.
-- [ ] Implement response drafting from structured outcomes.
-- [ ] Implement audit log generation.
+- [x] Define structured request schema.
+- [x] Define policy decision schema.
+- [x] Define report plan schema.
+- [x] Define audit event schema.
+- [x] Implement request validation and completeness checks.
+- [x] Implement deterministic policy checks.
+- [x] Implement deterministic report query/build logic.
+- [x] Implement CSV output.
+- [x] Implement XLSX output with summary, data, and request metadata tabs.
+- [x] Implement response drafting from structured outcomes.
+- [x] Implement audit log generation.
 
 Acceptance criteria:
 

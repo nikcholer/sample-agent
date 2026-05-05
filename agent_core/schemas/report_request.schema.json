@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/report_request.schema.json",
+  "title": "StructuredReportRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_type", "metrics", "dimensions", "date_range", "filters", "output_format"],
+  "properties": {
+    "report_type": {
+      "type": "string",
+      "enum": ["sales_summary", "product_breakdown", "monthly_trend", "top_n", "filtered_raw_extract", "unsupported"]
+    },
+    "metrics": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "dimensions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "date_range": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["start", "end"],
+          "properties": {
+            "start": {"type": "string", "format": "date"},
+            "end": {"type": "string", "format": "date"},
+            "label": {"type": "string"},
+            "reference_date": {"type": "string", "format": "date"}
+          }
+        }
+      ]
+    },
+    "filters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    },
+    "output_format": {
+      "type": ["string", "null"],
+      "enum": ["csv", "xlsx", null]
+    },
+    "purpose": {
+      "type": ["string", "null"]
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sort_by": {
+      "type": "string"
+    },
+    "ambiguous_terms": {
+      "type": "object"
+    }
+  }
+}

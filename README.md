@@ -38,7 +38,13 @@ Planned first commands:
 ```powershell
 python -m venv .venv
 python -m pip install -r requirements.txt
-python -m pytest
+python -m unittest discover -s tests
+```
+
+Run one fixture through the portable core:
+
+```powershell
+python tools\run_core_case.py case-001
 ```
 
 ## Design Notes
@@ -60,5 +66,6 @@ python -m pytest
 - [Clarification rules](docs/clarification-rules.md)
 - [Evaluation plan](docs/evaluation-plan.md)
 - [Synthetic business domain](docs/synthetic-business-domain.md)
+- [Portable core](docs/portable-core.md)
 - [Plan review](docs/plan-review.md)
 - [Source chat PDF](docs/agent-demo.pdf)

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.test/schemas/policy_decision.schema.json",
+  "title": "PolicyDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "reason_codes", "approval_required", "excluded_fields"],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": ["allowed", "deferred", "clarification_required", "approval_required", "rejected"]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "approver": {
+      "type": ["string", "null"]
+    },
+    "excluded_fields": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
