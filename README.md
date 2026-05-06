@@ -18,6 +18,7 @@ The example workflow is a sales-data request process. A requester sends an unstr
 - Vendor-neutral core logic with OpenAI Agents SDK as one working adapter.
 - OpenAI-compatible provider support through Together AI, while treating model choice as an evaluated operational decision.
 - Microsoft Copilot/Agents mapping without committing to Microsoft implementation earlier than necessary.
+- A companion scenario with [sales-reporting](https://github.com/nikcholer/sales-reporting), where generated data files feed a human-in-the-loop reporting and synthesis workflow.
 
 This is not a general BI replacement. It is a narrow, governed request-handling workflow.
 
@@ -30,6 +31,7 @@ Start here:
 - [Architecture](docs/architecture.md): diagrams for the portable core, adapter boundary, and before/after workflow.
 - [Evaluation results](docs/evaluation-results.md): deterministic baseline and live-adapter observations.
 - [Microsoft Copilot mapping](docs/microsoft-copilot-mapping.md): how the same core would surface in Microsoft 365 without platform lock-in.
+- [Companion project scenario](docs/companion-project-scenario.md): how this could feed a human-overseen reporting workflow.
 - [Demo script](docs/demo-script.md): suggested walkthrough for an interview or screen recording.
 
 Then inspect the implementation:
@@ -156,6 +158,7 @@ generated/                    Local generated output, ignored by Git
 - [Backlog](docs/backlog.md)
 - [Architecture](docs/architecture.md)
 - [Demo script](docs/demo-script.md)
+- [Companion project scenario](docs/companion-project-scenario.md)
 - [Implementation notes](docs/implementation-notes.md)
 - [Limitations and extensions](docs/limitations-and-extensions.md)
 - [Process overview](docs/process-overview.md)

@@ -60,6 +60,16 @@ Build a small form-based intake surface to show the trade-off directly:
 - agent intake is more useful when request types and terminology vary
 - both can call the same portable core
 
+### Companion Reporting Project
+
+Use this project alongside `sales-reporting` as a portfolio scenario:
+
+- `sample-agent` generates governed CSV/XLSX report files and audit traces
+- a human overseer adds notes, caveats, and corporate priorities
+- `sales-reporting` synthesizes validated data and human context into a polished output
+
+This should stay a loose scenario rather than a hard dependency between repositories.
+
 ## Production Readiness Gap
 
 Before production, the project would need:

@@ -52,6 +52,17 @@ Microsoft is a credible enterprise deployment target for this workflow, but a re
 
 Without a real tenant-backed deployment, a Microsoft scaffold would not prove much. The mapping document is more honest: it identifies where Microsoft-specific work would live while preserving the portable core boundary.
 
+## Companion Reporting Workflow
+
+The sibling `sales-reporting` project demonstrates a different corporate AI pattern: human-overseen report synthesis from validated local files, management notes, and contextual tools.
+
+The two projects should not be welded together as one implementation. Their value as a pair is architectural:
+
+- `sample-agent` handles governed request intake, permission checks, file generation, and audit.
+- `sales-reporting` shows where a human can add judgment, priorities, and audience context before AI-assisted narrative synthesis.
+
+That pairing makes the human-in-the-loop boundary clearer. The AI does not have to guess corporate priorities that are not in context; the overseer can provide them explicitly before the final report is drafted.
+
 ## Evaluation Philosophy
 
 The evaluation harness is deliberately strict. It compares structured fields, policy decisions, report plans, output files, and audit events against fixture expectations.
