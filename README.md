@@ -160,6 +160,7 @@ generated/                    Local generated output, ignored by Git
 - [Demo script](docs/demo-script.md)
 - [Companion project scenario](docs/companion-project-scenario.md)
 - [Implementation notes](docs/implementation-notes.md)
+- [Enterprise AI considerations](docs/enterprise-ai-considerations.md)
 - [Limitations and extensions](docs/limitations-and-extensions.md)
 - [Process overview](docs/process-overview.md)
 - [Current human workflow](docs/current-human-workflow.md)
